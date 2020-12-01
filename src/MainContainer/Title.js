@@ -10,7 +10,7 @@ const Title = () => {
       </Row>
       <Row className='image-container'>
       <img
-        src="https://avatars3.githubusercontent.com/u/38402683?s=460&v=4"
+        src="https://avatars3.githubusercontent.com/u/38402683?s=460&u=b6d46fb34aacadc2c187b28363dc936b034ed694&v=4"
         className="profile-pic"
       />
       </Row>
