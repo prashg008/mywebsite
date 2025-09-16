@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# My Personal Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a personal website built with React and Vite, showcasing skills, social links, and a title. It utilizes various libraries for enhanced functionality and presentation.
+
+## Contributors
+
+*   Prashanth G (Primary Developer)
+
+## Stack Used
+
+*   **Frontend Framework:** React
+*   **Build Tool:** Vite
+*   **Language:** TypeScript
+*   **Styling:** CSS (with Bootstrap and React-Bootstrap for components)
+*   **Animation/Effects:**
+    *   `@tsparticles` for particle effects
+    *   `react-type-animation` and `react-typed` for text animations
+
+## Steps to Build the Project
+
+1.  **Install Dependencies:**
+    Navigate to the project's root directory in your terminal and run:
+    ```bash
+    npm install
+    ```
+    This command installs all the necessary packages listed in `package.json`.
+
+2.  **Build for Production:**
+    To create an optimized build of the project for deployment, run:
+    ```bash
+    npm run build
+    ```
+    This command will compile the TypeScript code and bundle the assets into the `dist` folder.
+
+## Running the Project Locally
+
+1.  **Install Dependencies:**
+    If you haven't already, install the project dependencies:
+    ```bash
+    npm install
+    ```
+
+2.  **Start the Development Server:**
+    To run the project in development mode with live reloading, execute:
+    ```bash
+    npm run dev
+    ```
+    This will start a local development server, and you can access the website by opening your browser to `http://localhost:5173` (the port may vary, check your terminal output).
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
+Runs the app in the development mode.
+Open `http://localhost:5173` to view it in the browser.
+The page will reload if you make edits.
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
+Builds the app for production to the `dist` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run lint`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Runs ESLint to check for code quality and style issues.
 
-### `npm run eject`
+### `npm run preview`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Runs a local server to preview the production build.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `npm run deploy`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Builds the project for deployment using `gh-pages` and deploys it to the GitHub Pages site. This command first runs `npm run build` to ensure the `dist` folder is up-to-date, then deploys the contents of the `dist` folder.
