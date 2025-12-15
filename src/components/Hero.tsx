@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';

@@ -1,4 +1,4 @@
-import { Container, Row, Col, ProgressBar } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import python from '../static/Images/python.png';

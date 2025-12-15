@@ -24,7 +24,7 @@ const SkillsFuturistic = () => {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.5, ease: 'easeOut' },
+      transition: { duration: 0.5 },
     },
   };
 
