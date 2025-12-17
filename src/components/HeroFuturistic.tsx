@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaRocket } from 'react-icons/fa';
 
 const HeroFuturistic = () => {
   const containerVariants = {
@@ -21,6 +21,15 @@ const HeroFuturistic = () => {
       y: 0,
       transition: { duration: 0.8 },
     },
+  };
+
+  const floatingAnimation = {
+    y: [0, -20, 0],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
   };
 
   return (
@@ -71,31 +80,53 @@ const HeroFuturistic = () => {
             </motion.p>
 
             <motion.div variants={itemVariants} className="social-links-futuristic">
-              <a
+              <motion.a
                 href="https://github.com/prashg008"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link-futuristic"
                 aria-label="GitHub"
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <FaGithub />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://www.linkedin.com/in/prashanthg008/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link-futuristic"
                 aria-label="LinkedIn"
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <FaLinkedin />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="mailto:prashanthg008@gmail.com"
                 className="social-link-futuristic"
                 aria-label="Email"
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <FaEnvelope />
-              </a>
+              </motion.a>
+            </motion.div>
+
+            <motion.div
+              animate={floatingAnimation}
+              style={{
+                position: 'absolute',
+                top: '20%',
+                right: '10%',
+                fontSize: '3rem',
+                color: 'var(--nebula-violet)',
+                filter: 'drop-shadow(0 0 20px rgba(139, 92, 246, 0.6))',
+                opacity: 0.6,
+                zIndex: 1
+              }}
+            >
+              <FaRocket style={{ transform: 'rotate(45deg)' }} />
             </motion.div>
           </div>
         </motion.div>

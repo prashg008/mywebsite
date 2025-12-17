@@ -72,11 +72,32 @@ const ContactFuturistic = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{
+                  scale: 1.08,
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
+                whileTap={{ scale: 0.95 }}
                 className="contact-item-futuristic text-decoration-none"
               >
-                <div className="contact-icon-futuristic">{method.icon}</div>
-                <h5>{method.title}</h5>
+                <motion.div
+                  className="contact-icon-futuristic"
+                  whileHover={{
+                    scale: 1.3,
+                    rotate: 360,
+                    transition: { duration: 0.6 }
+                  }}
+                >
+                  {method.icon}
+                </motion.div>
+                <motion.h5
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  {method.title}
+                </motion.h5>
                 <span className="text-secondary">{method.value}</span>
               </motion.a>
             ))}

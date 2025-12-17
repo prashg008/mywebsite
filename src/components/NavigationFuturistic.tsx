@@ -48,9 +48,15 @@ const NavigationFuturistic = () => {
       className={`navbar-futuristic ${scrolled ? 'scrolled' : ''}`}
     >
       <Container>
-        <Navbar.Brand onClick={() => scrollToSection('home')} className="navbar-brand-futuristic">
-          <span className="brand-gradient">PRASHANTH G</span>
-        </Navbar.Brand>
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          style={{ cursor: 'pointer' }}
+        >
+          <Navbar.Brand onClick={() => scrollToSection('home')} className="navbar-brand-futuristic">
+            <span className="brand-gradient">PRASHANTH G</span>
+          </Navbar.Brand>
+        </motion.div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
@@ -60,6 +66,8 @@ const NavigationFuturistic = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <Nav.Link
                   onClick={() => scrollToSection(link.id)}

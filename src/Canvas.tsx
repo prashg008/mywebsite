@@ -25,51 +25,92 @@ const Canvas: React.FC = () => {
       className="bg-layer-1"
       style={{ width, height }}
       options={{
+        background: {
+          color: {
+            value: "transparent",
+          },
+        },
+        fullScreen: {
+          enable: false,
+          zIndex: 0,
+        },
         particles: {
           number: {
-            value: 100,
+            value: 200,
+            density: {
+              enable: true,
+              value_area: 1000,
+            },
           },
           color: {
-            value: "#ffffff",
+            value: ["#ffffff", "#a78bfa", "#60a5fa", "#f472b6"],
           },
           shape: {
-            type: "circle",
+            type: ["circle", "star"],
           },
           opacity: {
-            value: 0.3,
+            value: 0.8,
+            random: true,
+            animation: {
+              enable: true,
+              speed: 0.5,
+              minimumValue: 0.1,
+              sync: false,
+            },
           },
           size: {
-            value: 3,
-          },
-          links: {
-            enable: true,
-            distance: 150,
-            color: "#ffffff",
-            opacity: 0.4,
-            width: 1,
+            value: { min: 1, max: 4 },
+            random: true,
+            animation: {
+              enable: true,
+              speed: 2,
+              minimumValue: 0.3,
+              sync: false,
+            },
           },
           move: {
             enable: true,
-            speed: 2,
+            speed: { min: 0.1, max: 0.5 },
             direction: "none",
             random: true,
             straight: false,
-            outModes: "out",
+            outModes: {
+              default: "out",
+            },
+            attract: {
+              enable: true,
+              rotateX: 600,
+              rotateY: 1200,
+            },
           },
         },
         interactivity: {
+          detectsOn: "canvas",
           events: {
+            onHover: {
+              enable: true,
+              mode: "bubble",
+            },
             onClick: {
               enable: true,
-              mode: "push",
+              mode: "repulse",
             },
+            resize: true,
           },
           modes: {
-            push: {
-              quantity: 4,
+            bubble: {
+              distance: 200,
+              size: 6,
+              duration: 2,
+              opacity: 1,
+            },
+            repulse: {
+              distance: 150,
+              duration: 0.4,
             },
           },
         },
+        detectRetina: true,
       }}
     />
   );

@@ -75,21 +75,47 @@ const ProjectsFuturistic = () => {
               <div key={index} className="col-md-6">
                 <motion.div
                   variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{
+                    scale: 1.05,
+                    y: -15,
+                    transition: { duration: 0.4 }
+                  }}
+                  whileTap={{ scale: 0.98 }}
                   className="project-card-futuristic"
                 >
-                  <div
+                  <motion.div
                     className="project-gradient-futuristic"
                     style={{ background: project.gradient }}
-                  ></div>
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.4 }
+                    }}
+                  ></motion.div>
                   <div className="project-content-futuristic">
-                    <h3>{project.title}</h3>
+                    <motion.h3
+                      whileHover={{
+                        scale: 1.05,
+                        x: 10,
+                        transition: { duration: 0.3 }
+                      }}
+                    >
+                      {project.title}
+                    </motion.h3>
                     <p>{project.description}</p>
                     <div className="mb-3">
                       {project.tech.map((tech, techIndex) => (
-                        <span key={techIndex} className="tech-tag">
+                        <motion.span
+                          key={techIndex}
+                          className="tech-tag"
+                          whileHover={{
+                            scale: 1.15,
+                            y: -3,
+                            transition: { duration: 0.2 }
+                          }}
+                          whileTap={{ scale: 0.95 }}
+                        >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
                   </div>

@@ -87,15 +87,26 @@ const SkillsFuturistic = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{
+                    scale: 1.1,
+                    rotate: [0, 5, -5, 0],
+                    transition: { duration: 0.4 }
+                  }}
+                  whileTap={{ scale: 0.9 }}
                   className="skill-card-futuristic"
                 >
-                  <div
+                  <motion.div
                     className="skill-icon-futuristic"
-                    style={{ fontSize: '4rem', color: 'var(--primary-cyan)' }}
+                    style={{ fontSize: '4rem', color: 'var(--nebula-violet)' }}
+                    whileHover={{
+                      scale: 1.2,
+                      rotate: 360,
+                      color: 'var(--space-pink)',
+                      transition: { duration: 0.6, ease: "easeInOut" }
+                    }}
                   >
                     {skill.icon}
-                  </div>
+                  </motion.div>
                   <div className="skill-name-futuristic">{skill.name}</div>
                 </motion.div>
               ))}
@@ -114,15 +125,25 @@ const SkillsFuturistic = () => {
                 <div key={index} className="col-md-6">
                   <motion.div
                     variants={itemVariants}
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{
+                      scale: 1.05,
+                      y: -10,
+                      transition: { duration: 0.3 }
+                    }}
+                    whileTap={{ scale: 0.98 }}
                     className="glass-card-futuristic h-100"
                   >
-                    <div
+                    <motion.div
                       className="mb-3"
-                      style={{ fontSize: '3rem', color: 'var(--primary-cyan)' }}
+                      style={{ fontSize: '3rem', color: 'var(--nebula-violet)' }}
+                      whileHover={{
+                        scale: 1.15,
+                        rotate: [0, 10, -10, 0],
+                        transition: { duration: 0.5 }
+                      }}
                     >
                       {competency.icon}
-                    </div>
+                    </motion.div>
                     <h5
                       className="text-white mb-3"
                       style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '1.3rem' }}

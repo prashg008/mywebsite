@@ -93,15 +93,25 @@ const AboutFuturistic = () => {
                     <div key={index} className="col-6">
                       <motion.div
                         variants={itemVariants}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{
+                          scale: 1.08,
+                          rotate: [0, 2, -2, 0],
+                          transition: { duration: 0.3 }
+                        }}
+                        whileTap={{ scale: 0.95 }}
                         className="glass-card-futuristic text-center p-4"
                       >
-                        <div
+                        <motion.div
                           className="mb-3"
-                          style={{ fontSize: '2.5rem', color: 'var(--primary-cyan)' }}
+                          style={{ fontSize: '2.5rem', color: 'var(--nebula-violet)' }}
+                          whileHover={{
+                            scale: 1.2,
+                            rotate: 360,
+                            transition: { duration: 0.5 }
+                          }}
                         >
                           {item.icon}
-                        </div>
+                        </motion.div>
                         <h5
                           className="text-white mb-2"
                           style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '1rem' }}
