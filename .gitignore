@@ -54,4 +54,3 @@ dist-ssr
 *.temp
 .cache
 .Vite
-dist
