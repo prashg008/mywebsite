@@ -23,14 +23,6 @@ const HeroFuturistic = () => {
     },
   };
 
-  const floatingAnimation = {
-    y: [0, -20, 0],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  };
 
   return (
     <section className="hero-futuristic" id="home">
@@ -114,7 +106,14 @@ const HeroFuturistic = () => {
             </motion.div>
 
             <motion.div
-              animate={floatingAnimation}
+              animate={{
+                y: [0, -20, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: [0.4, 0, 0.6, 1]
+              }}
               style={{
                 position: 'absolute',
                 top: '20%',

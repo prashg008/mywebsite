@@ -39,48 +39,37 @@ const Canvas: React.FC = () => {
             value: 200,
             density: {
               enable: true,
-              value_area: 1000,
             },
           },
           color: {
             value: ["#ffffff", "#a78bfa", "#60a5fa", "#f472b6"],
           },
           shape: {
-            type: ["circle", "star"],
+            type: "circle",
           },
           opacity: {
             value: 0.8,
-            random: true,
             animation: {
               enable: true,
               speed: 0.5,
-              minimumValue: 0.1,
               sync: false,
             },
           },
           size: {
-            value: { min: 1, max: 4 },
-            random: true,
+            value: 3,
             animation: {
               enable: true,
               speed: 2,
-              minimumValue: 0.3,
               sync: false,
             },
           },
           move: {
             enable: true,
-            speed: { min: 0.1, max: 0.5 },
+            speed: 0.3,
             direction: "none",
-            random: true,
             straight: false,
             outModes: {
               default: "out",
-            },
-            attract: {
-              enable: true,
-              rotateX: 600,
-              rotateY: 1200,
             },
           },
         },
@@ -95,7 +84,9 @@ const Canvas: React.FC = () => {
               enable: true,
               mode: "repulse",
             },
-            resize: true,
+            resize: {
+              enable: true,
+            },
           },
           modes: {
             bubble: {
