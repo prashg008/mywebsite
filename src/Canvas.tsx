@@ -42,7 +42,7 @@ const Canvas: React.FC = () => {
             },
           },
           color: {
-            value: ["#ffffff", "#a78bfa", "#60a5fa", "#f472b6"],
+            value: ["#ffffff", "#e5e7eb", "#9ca3af", "#6b7280"],
           },
           shape: {
             type: "circle",
