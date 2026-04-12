@@ -55,7 +55,7 @@ const container = {
 }
 const item = {
   hidden: { opacity: 0, scale: 0.92 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
 }
 
 const Skills = () => {
