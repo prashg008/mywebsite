@@ -1,23 +1,20 @@
-import { Fragment } from 'react'
-import Canvas from './Canvas.tsx'
-import NavigationFuturistic from './components/NavigationFuturistic.tsx'
-import HeroFuturistic from './components/HeroFuturistic.tsx'
-import AboutFuturistic from './components/AboutFuturistic.tsx'
-import SkillsFuturistic from './components/SkillsFuturistic.tsx'
-import ContactFuturistic from './components/ContactFuturistic.tsx'
-import FooterFuturistic from './components/FooterFuturistic.tsx'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ThemeProvider } from './context/ThemeContext'
+import Nav from './components/Nav'
+import HomePage from './pages/HomePage'
+import ExplorePage from './pages/ExplorePage'
 
 function App() {
   return (
-    <Fragment>
-      <Canvas />
-      <NavigationFuturistic />
-      <HeroFuturistic />
-      <AboutFuturistic />
-      <SkillsFuturistic />
-      <ContactFuturistic />
-      <FooterFuturistic />
-    </Fragment>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/explore" element={<ExplorePage />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
