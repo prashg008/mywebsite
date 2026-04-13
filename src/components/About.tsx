@@ -37,14 +37,14 @@ const About = () => {
           <div className="about-grid">
             <motion.div variants={item} className="about-bio">
               <p>
-                I'm a <strong>Full Stack Developer</strong> passionate about creating elegant
-                solutions to complex problems. With expertise in modern web technologies and cloud
-                platforms, I build scalable applications that make a difference.
+                I'm a <strong>Full Stack Developer</strong> who writes code by day and stares at
+                stars by night. I build scalable systems, ride bikes when I'm stuck, and believe
+                the best debugging sessions happen after a decent cup of coffee.
               </p>
               <p>
-                My journey in software development has given me a diverse skill set - from
-                front-end frameworks to backend systems and cloud infrastructure. I thrive on
-                challenges and continuously seek to learn and adapt.
+                I've been known to paint, watch an unreasonable amount of anime, and seek out
+                mountain and beach views in equal measure. If it involves a good view and
+                something warm to drink, I'm probably already there.
               </p>
             </motion.div>
 
