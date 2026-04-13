@@ -6,7 +6,10 @@ import { useKonamiWithDismiss } from './hooks/useKonami'
 import { useTabTitle } from './hooks/useTabTitle'
 import { ThemeProvider } from './context/ThemeContext'
 import ExplorePage from './pages/ExplorePage'
+import GamesPage from './pages/GamesPage'
 import HomePage from './pages/HomePage'
+import JokesPage from './pages/JokesPage'
+import ToolsPage from './pages/ToolsPage'
 
 function KonamiOverlay({ onDismiss }: { onDismiss: () => void }) {
   return (
@@ -20,31 +23,61 @@ function KonamiOverlay({ onDismiss }: { onDismiss: () => void }) {
     >
       <svg
         className="konami-svg"
-        width="200"
-        height="160"
-        viewBox="0 0 200 160"
+        width="220"
+        height="300"
+        viewBox="0 0 220 300"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Orion constellation — simplified */}
-        <circle cx="100" cy="20" r="2.5" fill="#c96442" />
-        <circle cx="80" cy="50" r="2" fill="#faf9f5" opacity="0.8" />
-        <circle cx="120" cy="50" r="2" fill="#faf9f5" opacity="0.8" />
-        <circle cx="85" cy="80" r="2" fill="#c96442" />
-        <circle cx="100" cy="78" r="2" fill="#c96442" />
-        <circle cx="115" cy="80" r="2" fill="#c96442" />
-        <circle cx="75" cy="110" r="2.5" fill="#faf9f5" opacity="0.8" />
-        <circle cx="125" cy="110" r="2.5" fill="#faf9f5" opacity="0.8" />
-        <circle cx="90" cy="140" r="2" fill="#faf9f5" opacity="0.6" />
-        <circle cx="110" cy="140" r="2" fill="#faf9f5" opacity="0.6" />
-        <line x1="100" y1="20" x2="80" y2="50" stroke="#faf9f5" strokeWidth="0.5" opacity="0.3" />
-        <line x1="100" y1="20" x2="120" y2="50" stroke="#faf9f5" strokeWidth="0.5" opacity="0.3" />
-        <line x1="80" y1="50" x2="85" y2="80" stroke="#faf9f5" strokeWidth="0.5" opacity="0.3" />
-        <line x1="120" y1="50" x2="115" y2="80" stroke="#faf9f5" strokeWidth="0.5" opacity="0.3" />
-        <line x1="85" y1="80" x2="75" y2="110" stroke="#faf9f5" strokeWidth="0.5" opacity="0.3" />
-        <line x1="115" y1="80" x2="125" y2="110" stroke="#faf9f5" strokeWidth="0.5" opacity="0.3" />
-        <line x1="75" y1="110" x2="90" y2="140" stroke="#faf9f5" strokeWidth="0.5" opacity="0.3" />
-        <line x1="125" y1="110" x2="110" y2="140" stroke="#faf9f5" strokeWidth="0.5" opacity="0.3" />
+        {/* Orion — accurate star positions */}
+        {/* Lines first (behind stars) */}
+        <line x1="110" y1="38"  x2="72"  y2="88"  stroke="#faf9f5" strokeWidth="0.6" opacity="0.25" />
+        <line x1="110" y1="38"  x2="152" y2="82"  stroke="#faf9f5" strokeWidth="0.6" opacity="0.25" />
+        <line x1="72"  y1="88"  x2="90"  y2="148" stroke="#faf9f5" strokeWidth="0.6" opacity="0.25" />
+        <line x1="152" y1="82"  x2="130" y2="144" stroke="#faf9f5" strokeWidth="0.6" opacity="0.25" />
+        {/* Belt */}
+        <line x1="90"  y1="148" x2="110" y2="152" stroke="#faf9f5" strokeWidth="0.9" opacity="0.55" />
+        <line x1="110" y1="152" x2="130" y2="144" stroke="#faf9f5" strokeWidth="0.9" opacity="0.55" />
+        {/* Belt to feet */}
+        <line x1="90"  y1="148" x2="76"  y2="222" stroke="#faf9f5" strokeWidth="0.6" opacity="0.25" />
+        <line x1="130" y1="144" x2="150" y2="218" stroke="#faf9f5" strokeWidth="0.6" opacity="0.25" />
+        {/* Sword below belt */}
+        <line x1="112" y1="156" x2="108" y2="178" stroke="#faf9f5" strokeWidth="0.5" opacity="0.2" />
+        <line x1="108" y1="178" x2="110" y2="196" stroke="#faf9f5" strokeWidth="0.5" opacity="0.2" />
+
+        {/* Stars */}
+        {/* Meissa — head */}
+        <circle cx="110" cy="35"  r="1.8" fill="#faf9f5" opacity="0.65" />
+        {/* Betelgeuse — left shoulder, red supergiant */}
+        <circle cx="72"  cy="88"  r="4.5" fill="#c96442" opacity="0.95" />
+        {/* Bellatrix — right shoulder */}
+        <circle cx="152" cy="82"  r="2.5" fill="#faf9f5" opacity="0.85" />
+        {/* Belt: Alnitak (left), Alnilam (center), Mintaka (right) — slight diagonal */}
+        <circle cx="90"  cy="148" r="2"   fill="#faf9f5" opacity="0.9" />
+        <circle cx="110" cy="152" r="2.5" fill="#faf9f5" opacity="1"   />
+        <circle cx="130" cy="144" r="2"   fill="#faf9f5" opacity="0.9" />
+        {/* Sword */}
+        <circle cx="108" cy="178" r="1.5" fill="#faf9f5" opacity="0.45" />
+        <circle cx="110" cy="194" r="1.2" fill="#faf9f5" opacity="0.35" />
+        {/* Saiph — left foot */}
+        <circle cx="76"  cy="222" r="2.5" fill="#faf9f5" opacity="0.75" />
+        {/* Rigel — right foot, blue-white supergiant */}
+        <circle cx="150" cy="218" r="4.5" fill="#c8dcff" opacity="0.95" />
+
+        {/* Ambient background stars */}
+        <circle cx="28"  cy="55"  r="0.9" fill="#faf9f5" opacity="0.28" />
+        <circle cx="188" cy="38"  r="0.8" fill="#faf9f5" opacity="0.22" />
+        <circle cx="18"  cy="165" r="0.8" fill="#faf9f5" opacity="0.2"  />
+        <circle cx="198" cy="185" r="0.9" fill="#faf9f5" opacity="0.25" />
+        <circle cx="48"  cy="272" r="0.8" fill="#faf9f5" opacity="0.2"  />
+        <circle cx="172" cy="264" r="0.8" fill="#faf9f5" opacity="0.2"  />
+        <circle cx="165" cy="120" r="0.7" fill="#faf9f5" opacity="0.18" />
+        <circle cx="42"  cy="210" r="0.7" fill="#faf9f5" opacity="0.18" />
+
+        {/* Star labels */}
+        <text x="44"  y="84"  fontSize="7" fill="#c96442" opacity="0.75" fontFamily="Georgia, serif">Betelgeuse</text>
+        <text x="156" y="80"  fontSize="7" fill="#faf9f5" opacity="0.5"  fontFamily="Georgia, serif">Bellatrix</text>
+        <text x="154" y="215" fontSize="7" fill="#c8dcff" opacity="0.75" fontFamily="Georgia, serif">Rigel</text>
       </svg>
       <p className="konami-title">You found the good stuff 🌟</p>
       <p className="konami-sub">Most people don't get this far.</p>
@@ -78,6 +111,9 @@ function AppInner() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/explore" element={<ExplorePage />} />
+        <Route path="/games" element={<GamesPage />} />
+        <Route path="/jokes" element={<JokesPage />} />
+        <Route path="/tools" element={<ToolsPage />} />
       </Routes>
     </>
   )
