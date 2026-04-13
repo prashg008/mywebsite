@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
@@ -48,22 +48,32 @@ const item = {
 const BeyondCode = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 })
   const facts = useMemo(() => shuffle(ALL_FACTS).slice(0, 12), [])
-  const [sparked, setSparked] = useState<Set<number>>(new Set())
 
-  const handleFactClick = (idx: number) => {
-    setSparked((prev) => {
-      const next = new Set(prev)
-      next.add(idx)
-      setTimeout(
-        () => setSparked((s) => {
-          const n = new Set(s)
-          n.delete(idx)
-          return n
-        }),
-        600,
-      )
-      return next
-    })
+  const handleFactClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const markerEl = e.currentTarget.querySelector('.beyond-fact-marker') as HTMLElement
+    const originX = markerEl
+      ? markerEl.getBoundingClientRect().left + markerEl.offsetWidth / 2
+      : rect.left + 10
+    const originY = markerEl
+      ? markerEl.getBoundingClientRect().top + markerEl.offsetHeight / 2
+      : rect.top + rect.height / 2
+
+    const chars = ['✦', '★', '✧', '·', '✦']
+    for (let i = 0; i < 7; i++) {
+      const el = document.createElement('span')
+      el.className = 'fact-spark'
+      el.textContent = chars[i % chars.length]
+      el.style.left = `${originX}px`
+      el.style.top  = `${originY}px`
+      const angle = (i / 7) * 360
+      const dist  = 28 + Math.random() * 18
+      el.style.setProperty('--tx', `${Math.cos((angle * Math.PI) / 180) * dist}px`)
+      el.style.setProperty('--ty', `${Math.sin((angle * Math.PI) / 180) * dist}px`)
+      el.style.animationDelay = `${i * 25}ms`
+      document.body.appendChild(el)
+      el.addEventListener('animationend', () => el.remove())
+    }
   }
 
   return (
@@ -80,12 +90,12 @@ const BeyondCode = () => {
           </motion.div>
 
           <div className="beyond-facts">
-            {facts.map((fact, idx) => (
+            {facts.map((fact) => (
               <motion.div
                 key={fact}
                 variants={item}
-                className={`beyond-fact${sparked.has(idx) ? ' sparked' : ''}`}
-                onClick={() => handleFactClick(idx)}
+                className="beyond-fact"
+                onClick={handleFactClick}
               >
                 <span className="beyond-fact-marker">✦</span>
                 <span className="beyond-fact-text">{fact}</span>

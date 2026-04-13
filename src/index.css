@@ -825,6 +825,22 @@ section,
   100% { opacity: 0; transform: translateY(100vh); }
 }
 
+/* ─── Fact sparkle burst ─────────────────────────────────── */
+.fact-spark {
+  position: fixed;
+  pointer-events: none;
+  font-size: 11px;
+  color: var(--accent);
+  z-index: 9999;
+  animation: spark-burst 0.55s ease-out forwards;
+}
+
+@keyframes spark-burst {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  60%  { opacity: 0.8; transform: translate(var(--tx), var(--ty)) scale(1.2); }
+  100% { opacity: 0; transform: translate(calc(var(--tx) * 1.4), calc(var(--ty) * 1.4)) scale(0.5); }
+}
+
 /* ─── Konami overlay ─────────────────────────────────────── */
 .konami-overlay {
   position: fixed;
