@@ -653,3 +653,241 @@ section,
   color: var(--text-tertiary);
   line-height: 1.5;
 }
+
+/* ─── Star field on dark sections ───────────────────────── */
+.section-alternate {
+  position: relative;
+  overflow: hidden;
+}
+.section-alternate::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 75%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 50%, rgba(255,255,255,0.2) 0%, transparent 100%);
+  z-index: 0;
+  opacity: 0.06;
+}
+.section-alternate > * { position: relative; z-index: 1; }
+
+/* ─── ✦ pulse keyframe ───────────────────────────────────── */
+@keyframes marker-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.2); }
+}
+
+/* ─── Beyond the code section ───────────────────────────── */
+.beyond-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 680px;
+}
+
+.beyond-fact {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 4px 6px;
+  transition: background 0.2s;
+}
+.beyond-fact:hover { background: rgba(201,100,66,0.06); }
+
+.beyond-fact-marker {
+  color: var(--brand);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  animation: marker-pulse 3s ease-in-out infinite;
+  display: inline-block;
+  transform-origin: center;
+}
+
+.beyond-fact-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-secondary-on-alt);
+}
+
+.beyond-fact.sparked .beyond-fact-text {
+  color: var(--brand);
+  transition: color 0.15s;
+}
+
+/* ─── Weird skills row ───────────────────────────────────── */
+.weird-skills-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+  margin-top: 24px;
+}
+
+.skill-chip--weird {
+  border-style: dashed;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* ─── Time greeting pill ─────────────────────────────────── */
+.hero-time-greeting {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-tertiary);
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+/* ─── Avatar status badge ────────────────────────────────── */
+.avatar-status {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-secondary);
+  margin-top: -16px;
+  margin-bottom: 8px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Avatar starfield hover ─────────────────────────────── */
+.hero-avatar-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.hero-avatar-wrap::after {
+  content: '✦ ✦ ✦ ✦ ✦ ✦';
+  position: absolute;
+  inset: -12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--brand);
+  letter-spacing: 8px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.hero-avatar-wrap:hover::after { opacity: 0.7; }
+
+/* ─── Theme toggle float animation ──────────────────────── */
+.theme-float {
+  position: fixed;
+  font-size: 20px;
+  pointer-events: none;
+  animation: float-up 0.6s ease forwards;
+  z-index: 9999;
+}
+
+@keyframes float-up {
+  0%   { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-40px); }
+}
+
+/* ─── Coffee rain ────────────────────────────────────────── */
+.coffee-drop {
+  position: fixed;
+  font-size: 20px;
+  pointer-events: none;
+  animation: fall-down 1.5s ease-in forwards;
+  z-index: 9999;
+}
+
+@keyframes fall-down {
+  0%   { opacity: 1; transform: translateY(-20px); }
+  80%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(100vh); }
+}
+
+/* ─── Konami overlay ─────────────────────────────────────── */
+.konami-overlay {
+  position: fixed;
+  inset: 0;
+  background: #141413;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  cursor: pointer;
+  animation: fadeIn 0.4s ease;
+}
+
+.konami-title {
+  font-family: Georgia, serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: #faf9f5;
+  font-weight: 500;
+  text-align: center;
+}
+
+.konami-sub {
+  font-size: 15px;
+  color: #87867f;
+  text-align: center;
+}
+
+.konami-close-hint {
+  font-size: 12px;
+  color: #5e5d59;
+  margin-top: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.konami-svg {
+  margin: 24px 0;
+}
+
+/* ─── Footer coffee counter ──────────────────────────────── */
+.footer-coffee-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-tertiary);
+  padding: 0;
+  position: relative;
+}
+.footer-coffee-btn:hover { color: var(--brand); }
+.footer-coffee-btn[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 11px;
+  white-space: nowrap;
+  color: var(--text-tertiary);
+}
