@@ -5,7 +5,7 @@ import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 
 const obsessions = [
   'Currently stargazing instead of sleeping',
-  'Currently on: Chainsaw Man',
+  'Currently on: One Piece',
   'Currently obsessed with Go',
   'Currently on a 5km bike streak',
   'Currently painting badly',
