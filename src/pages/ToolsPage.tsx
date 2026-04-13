@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import DevToolsWorkbench from '../components/DevToolsWorkbench'
 
 const ToolsPage = () => (
@@ -9,6 +10,17 @@ const ToolsPage = () => (
         </p>
         <h1 className="explore-title">Dev Tools</h1>
         <p className="explore-sub">Practical tools you actually end up using every week.</p>
+        <div className="page-crumbs" aria-label="Breadcrumb">
+          <Link to="/" className="page-crumb-link">
+            Home
+          </Link>
+          <span className="page-crumb-sep">/</span>
+          <Link to="/explore" className="page-crumb-link">
+            Explore
+          </Link>
+          <span className="page-crumb-sep">/</span>
+          <span className="page-crumb-current">Tools</span>
+        </div>
       </div>
     </div>
 

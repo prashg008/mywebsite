@@ -76,6 +76,13 @@ const ExplorePage = () => {
           </p>
           <h1 className="explore-title">What do you feel like?</h1>
           <p className="explore-sub">Pick a world. No rules.</p>
+          <div className="page-crumbs" aria-label="Breadcrumb">
+            <Link to="/" className="page-crumb-link">
+              Home
+            </Link>
+            <span className="page-crumb-sep">/</span>
+            <span className="page-crumb-current">Explore</span>
+          </div>
         </div>
       </div>
 

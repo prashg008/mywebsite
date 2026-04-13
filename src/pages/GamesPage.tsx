@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import QuirkyGames from '../components/QuirkyGames'
 
 const GamesPage = () => (
@@ -9,6 +10,17 @@ const GamesPage = () => (
         </p>
         <h1 className="explore-title">Quirky Games</h1>
         <p className="explore-sub">Same vibe. More chaos.</p>
+        <div className="page-crumbs" aria-label="Breadcrumb">
+          <Link to="/" className="page-crumb-link">
+            Home
+          </Link>
+          <span className="page-crumb-sep">/</span>
+          <Link to="/explore" className="page-crumb-link">
+            Explore
+          </Link>
+          <span className="page-crumb-sep">/</span>
+          <span className="page-crumb-current">Games</span>
+        </div>
       </div>
     </div>
 
