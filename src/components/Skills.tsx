@@ -49,6 +49,16 @@ const competencies: CompetencyItem[] = [
   },
 ]
 
+const weirdSkills: string[] = [
+  'Debugging by staring until it feels guilty',
+  'Cold coffee consumption',
+  'Finding constellations at 2am',
+  'Converting sunset colours to hex codes',
+  'Solving bugs mid bike ride',
+  'Painting over problems',
+  'Naming stars but not CSS classes',
+]
+
 const container = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.07 } },
@@ -88,6 +98,17 @@ const Skills = () => {
               </motion.div>
             ))}
           </div>
+
+          <motion.div variants={item}>
+            <p className="weird-skills-label">Other skills</p>
+            <div className="skill-chips">
+              {weirdSkills.map((s) => (
+                <div key={s} className="skill-chip skill-chip--weird">
+                  {s}
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
